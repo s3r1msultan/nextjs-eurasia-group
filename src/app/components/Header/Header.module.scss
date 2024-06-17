@@ -1,0 +1,42 @@
+@import "@/app/styles/constants.scss";
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px rgba($color: $primary-color, $alpha: 0.1);
+  padding: 1rem 0;
+
+  .burger-button {
+    position: relative;
+    height: 100%;
+
+    &::after,
+    &::before {
+      position: absolute;
+      left: 0;
+      content: "";
+      width: 30px;
+      height: 2px;
+      background-color: $primary-color;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+
+    &::before {
+      top: 0;
+    }
+  }
+
+  .logo {
+    height: 100%;
+  }
+
+  .locale-button {
+    height: 100%;
+    border-radius: 50%;
+    background-color: rgba($color: $primary-color, $alpha: 0.1);
+    font-size: 14px;
+  }
+}
