@@ -2,7 +2,7 @@ import React from "react";
 import Wrapper from "../Wrapper/Wrapper";
 import styles from "./Footer.module.scss";
 import Image from "next/image";
-import { inter } from "@/pages";
+import { inter } from "@/pages/layout";
 
 const Footer = () => {
 	return (

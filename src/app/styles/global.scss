@@ -32,6 +32,11 @@ a {
 	color: inherit;
 }
 
+section {
+	position: relative;
+	height: max-content;
+}
+
 .social_links {
 	display: flex;
 	align-items: center;
