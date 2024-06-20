@@ -1,51 +1,36 @@
 @import "./constants.scss";
 
 * {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 html {
-	font-size: 16px;
+  font-size: 16px;
 }
 
 body {
-	background-color: $bg-color;
-	padding: 1.5rem 0;
+  background-color: $bg-color;
+  padding: 1.5rem 0;
 }
 
 button {
-	border: 0;
+  border: 0;
 }
 
 section {
-	padding: 100px 0;
+  padding: 100px 0;
 }
 
 ul {
-	list-style: none;
+  list-style: none;
 }
 
 a {
-	text-decoration: none;
-	color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
-section {
-	position: relative;
-	height: max-content;
-	h2 {
-		font-size: 3rem;
-	}
-}
-
-.social_links {
-	display: flex;
-	align-items: center;
-	gap: 1rem;
-	img {
-		height: 30px;
-		width: 30px;
-	}
+header {
 }

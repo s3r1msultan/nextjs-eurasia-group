@@ -1,9 +1,57 @@
 @import "@/app/styles/constants.scss";
 
-.footer_content {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding-top: 2rem;
-	border-top: solid 1px rgba($color: $primary-color, $alpha: 0.1);
+.footer {
+  &_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 2rem;
+    border-top: solid 1px rgba($color: $primary-color, $alpha: 0.1);
+  }
+
+  &_copyright {
+    color: #0a2910bd;
+    text-transform: uppercase;
+  }
+
+  &_social_links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &_social_link {
+    padding: 0.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: solid 2px rgba(10, 41, 16, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border: solid 2px rgba(10, 41, 16, 0.5);
+
+      .icon path {
+        fill-opacity: 1;
+      }
+    }
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    transition: fill 0.3s ease;
+    position: relative;
+
+    path {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
