@@ -2,10 +2,11 @@ import React from "react";
 import styles from "./HomeStyle.module.scss";
 import Wrapper from "@/app/components/Wrapper/Wrapper";
 import Image from "next/image";
+import imtro_img from "../../../public/assets/images/main_intro.png";
 
 const IntroSection = () => {
   return (
-    <section className={styles.section}>
+    <section className={styles.intro_section}>
       <div className={styles.intro_wrapper}>
         <Wrapper>
           <div className={styles.intro_content}>
@@ -27,14 +28,7 @@ const IntroSection = () => {
           </div>
         </Wrapper>
         <div className={styles.intro_image}>
-          <Image
-            src="/assets/images/main_intro.png"
-            alt="intro"
-            sizes="100vw"
-            width={0}
-            height={0}
-            style={{ objectPosition: "left", objectFit: "cover", width: "100%", height: "auto" }}
-          />
+          <Image src={imtro_img} alt="intro" />
         </div>
       </div>
     </section>
