@@ -1,11 +1,8 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import Header from "@/app/components/Header/Header";
-import Footer from "@/app/components/Footer/Footer";
-import Sidebar from "@/app/components/Sidebar/Sidebar";
-import Layout from "./layout";
 import IntroSection from "./Home/IntroSection";
+import InfoSection from "./Home/InfoSection";
+import SolutionsSection from "./Home/SolutionsSection";
+import Layout from "./layout";
 
 export default function Home() {
 	return (
@@ -21,6 +18,8 @@ export default function Home() {
 			</Head>
 			<Layout>
 				<IntroSection />
+				<InfoSection />
+				<SolutionsSection />
 			</Layout>
 		</>
 	);
