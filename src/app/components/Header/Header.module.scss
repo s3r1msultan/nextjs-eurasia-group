@@ -2,45 +2,43 @@
 
 .header {
 	background-color: $bg-color;
-	padding-bottom: 1rem;
-	border-bottom: 1px solid rgba($color: $primary-color, $alpha: 0.1);
-}
-
-.header_content {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 34px;
-
-	.burger_button {
+	&_content {
 		display: flex;
-		flex-direction: column;
-		justify-content: space-evenly;
-		width: 30px;
-		height: 80%;
-		cursor: pointer;
-		background: transparent;
-		border: none;
-		.burger_line {
-			width: 100%;
-			height: 2px;
-			background-color: $primary-color;
-		}
-	}
-
-	.logo {
-		height: auto;
-		width: auto;
-	}
-
-	.locale_button {
-		display: flex;
+		justify-content: space-between;
 		align-items: center;
-		justify-content: center;
-		padding: 0.5rem;
-		border-radius: 50%;
-		background-color: rgba($color: $primary-color, $alpha: 0.1);
-		font-size: 14px;
-		cursor: pointer;
+		padding-bottom: 1.5rem;
+		border-bottom: 1px solid rgba($color: $primary-color, $alpha: 0.1);
+
+		.burger_button {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			width: 30px;
+			gap: 0.5rem;
+			cursor: pointer;
+			background: transparent;
+			border: none;
+			.burger_line {
+				width: 100%;
+				height: 2px;
+				background-color: $primary-color;
+			}
+		}
+
+		.logo {
+			height: auto;
+			width: auto;
+		}
+
+		.locale_button {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0.5rem;
+			border-radius: 50%;
+			background-color: rgba($color: $primary-color, $alpha: 0.1);
+			font-size: 14px;
+			cursor: pointer;
+		}
 	}
 }

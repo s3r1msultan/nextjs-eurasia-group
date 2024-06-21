@@ -4,7 +4,7 @@ import Wrapper from "../Wrapper/Wrapper";
 import { useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import Link from "next/link";
-import { inter } from "@/pages/layout";
+import { inter } from "@/pages/Layout";
 
 const Header = () => {
 	const [isOpen, showSidebar] = useState(false);

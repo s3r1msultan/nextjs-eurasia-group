@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./HomeStyle.module.scss";
+import styles from "./Home.module.scss";
 
 const InfoSection = () => {
 	return (

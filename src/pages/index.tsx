@@ -2,7 +2,7 @@ import Head from "next/head";
 import IntroSection from "./Home/IntroSection";
 import InfoSection from "./Home/InfoSection";
 import SolutionsSection from "./Home/SolutionsSection";
-import Layout from "./layout";
+import Layout from "./Layout";
 
 export default function Home() {
 	return (
@@ -16,11 +16,9 @@ export default function Home() {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Layout>
-				<IntroSection />
-				<InfoSection />
-				<SolutionsSection />
-			</Layout>
+			<IntroSection />
+			<InfoSection />
+			<SolutionsSection />
 		</>
 	);
 }
