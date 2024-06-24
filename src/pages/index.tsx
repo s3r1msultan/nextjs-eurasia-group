@@ -1,7 +1,7 @@
 import Head from "next/head";
-import IntroSection from "./Home/IntroSection";
-import InfoSection from "./Home/InfoSection";
-import SolutionsSection from "./Home/SolutionsSection";
+import IntroSection from "./IntroSection";
+import DigitsSection from "./DigitsSection";
+import SolutionsSection from "./SolutionsSection";
 import Layout from "./Layout";
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<IntroSection />
-			<InfoSection />
+			<DigitsSection />
 			<SolutionsSection />
 		</>
 	);
