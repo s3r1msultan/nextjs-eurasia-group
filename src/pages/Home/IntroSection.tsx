@@ -8,36 +8,34 @@ import Link from "next/link";
 import ContactButton from "@/app/components/ContactButton/ContactButton";
 
 const IntroSection = () => {
-	return (
-		<section className="intro">
-			<div className="intro_wrapper">
-				<Wrapper>
-					<div className="intro_content">
-						<h1 className="intro_title">
-							<span>Eurasia</span> Group
-						</h1>
-						<p className="intro_subtitle">
-							Сегодня мы — единственная компания на казахстанском
-							сельскохозяйственном рынке, которая уже более 20-ти лет с
-							гордостью представляет лучшую технику от мировых лидеров, таких
-							как:
-						</p>
-						<ul className={styles.intro_list}>
-							<li>John Deere (США)</li>
-							<li>Lindsay Irrigation (США)</li>
-							<li>JCB (Великобритания)</li>
-							<li>Grimme (Германия)</li>
-							<li>Väderstad (Швеция)</li>
-						</ul>
-						<ContactButton className={styles.contact_us} />
-					</div>
-				</Wrapper>
-				<div className="intro_image">
-					<Image src={imtro_img} alt="intro" />
-				</div>
-			</div>
-		</section>
-	);
+  return (
+    <section className="intro">
+      <div className="intro_wrapper">
+        <Wrapper>
+          <div className="intro_content">
+            <h1 className="intro_title">
+              <span>Eurasia</span> Group
+            </h1>
+            <p className="intro_subtitle">
+              Сегодня мы — единственная компания на казахстанском сельскохозяйственном рынке, которая уже более 20-ти
+              лет с гордостью представляет лучшую технику от мировых лидеров, таких как:
+            </p>
+            <ul className={styles.intro_list}>
+              <li>John Deere (США)</li>
+              <li>Lindsay Irrigation (США)</li>
+              <li>JCB (Великобритания)</li>
+              <li>Grimme (Германия)</li>
+              <li>Väderstad (Швеция)</li>
+            </ul>
+            <ContactButton className={styles.contact_us} />
+          </div>
+        </Wrapper>
+        <div className="intro_image">
+          <Image src={imtro_img} alt="intro" />
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default IntroSection;
