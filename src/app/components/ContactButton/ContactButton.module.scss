@@ -1,28 +1,33 @@
 @import "@/app/styles/constants.scss";
 .contact_us {
-	margin-top: 1rem;
-	padding: 1.25rem 1.5rem;
-	font-size: 1rem;
-	font-weight: 600;
-	color: $accent-color-1;
-	border: 2px solid $accent-color-1;
-	border-radius: 50px;
-	background-color: transparent;
-	cursor: pointer;
-	text-transform: uppercase;
-	transition: all 0.3s ease;
-	width: fit-content;
-	&:hover {
-		background-color: rgba($color: $accent-color-1, $alpha: 0.1);
-	}
+  margin-top: 1rem;
+  padding: 1.25rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: $accent-color-1;
+  border: 2px solid $accent-color-1;
+  border-radius: 50px;
+  background-color: transparent;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  width: fit-content;
 
-	a {
-		gap: 0.5rem;
-		display: flex;
-		align-items: center;
-	}
+  @include s {
+    width: 100%;
+  }
+  &:hover {
+    background-color: rgba($color: $accent-color-1, $alpha: 0.1);
+  }
 
-	.arrow path {
-		fill: $accent-color-1;
-	}
+  a {
+    gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .arrow path {
+    fill: $accent-color-1;
+  }
 }
