@@ -22,6 +22,14 @@
 		padding-left: 1rem;
 		font-size: 18px;
 		line-height: 2;
+
+		@include l {
+			font-size: 16px;
+		}
+
+		@include xs {
+			font-size: 14px;
+		}
 	}
 }
 

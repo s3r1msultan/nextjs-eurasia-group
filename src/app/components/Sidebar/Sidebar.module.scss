@@ -1,158 +1,163 @@
 @import "@/app/styles/constants.scss";
 
 .nav {
-  width: 420px;
-  position: fixed;
-  padding: 2rem 0;
-  height: 100vh;
-  top: 0;
-  left: -420px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 2;
-  background-color: $sidebar-bg-color;
-  box-shadow: 4px 0 33px #26495e24;
-  transition: all 0.3s ease-in-out;
+	width: 420px;
+	position: fixed;
+	padding: 2rem 0;
+	height: 100vh;
+	top: 0;
+	left: -420px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	z-index: 2;
+	background-color: $sidebar-bg-color;
+	box-shadow: 4px 0 33px #26495e24;
+	transition: all 0.3s ease-in-out;
 
-  &.open {
-    left: 0;
-  }
+	@include xs {
+		width: 100%;
+		left: -100%;
+	}
 
-  .close_button {
-    width: 32px;
-    height: 32px;
-    padding: 6px;
-    cursor: pointer;
-    background-color: transparent;
-    margin-right: 1.5rem;
-    margin-left: auto;
-    margin-bottom: 5rem;
+	&.open {
+		left: 0;
+	}
 
-    &:hover .close_line {
-      background-color: $primary-color;
-    }
+	.close_button {
+		width: 32px;
+		height: 32px;
+		padding: 6px;
+		cursor: pointer;
+		background-color: transparent;
+		margin-right: 1.5rem;
+		margin-left: auto;
+		margin-bottom: 5rem;
 
-    &_wrapper {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+		&:hover .close_line {
+			background-color: $primary-color;
+		}
 
-      .close_line {
-        transition: all 0.3s ease-in-out;
+		&_wrapper {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 
-        position: absolute;
-        width: 100%;
-        height: 3px;
-        background-color: #3333338a;
-        &:nth-of-type(1) {
-          transform: rotate(45deg);
-        }
-        &:nth-of-type(2) {
-          transform: rotate(-45deg);
-        }
-      }
-    }
-  }
+			.close_line {
+				transition: all 0.3s ease-in-out;
 
-  .nav_links {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    font-size: 1.25rem;
-    text-transform: uppercase;
-    font-weight: 500;
-    width: 100%;
-    margin-bottom: 3.5rem;
+				position: absolute;
+				width: 100%;
+				height: 3px;
+				background-color: #3333338a;
+				&:nth-of-type(1) {
+					transform: rotate(45deg);
+				}
+				&:nth-of-type(2) {
+					transform: rotate(-45deg);
+				}
+			}
+		}
+	}
 
-    a {
-      &:first-of-type {
-        border-top: solid 1px rgba($color: $primary-color, $alpha: 0.1);
-      }
-      border-bottom: solid 1px rgba($color: $primary-color, $alpha: 0.1);
-    }
+	.nav_links {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		font-size: 1.25rem;
+		text-transform: uppercase;
+		font-weight: 500;
+		width: 100%;
+		margin-bottom: 3.5rem;
 
-    li {
-      padding: 2rem 0;
-      width: 100%;
-      text-align: center;
-      transition: all 0.3s ease-in-out;
-      color: rgba($color: $primary-color, $alpha: 0.87);
-      &:hover {
-        color: $primary-color;
-        background-color: rgba($color: $primary-color, $alpha: 0.1);
-      }
-    }
-  }
+		a {
+			&:first-of-type {
+				border-top: solid 1px rgba($color: $primary-color, $alpha: 0.1);
+			}
+			border-bottom: solid 1px rgba($color: $primary-color, $alpha: 0.1);
+		}
 
-  .contact_us {
-    padding: 1.25rem 2.5rem;
-    border: 1px solid rgba($color: $primary-color, $alpha: 0.2);
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: rgba($color: $primary-color, $alpha: 0.87);
+		li {
+			padding: 2rem 0;
+			width: 100%;
+			text-align: center;
+			transition: all 0.3s ease-in-out;
+			color: rgba($color: $primary-color, $alpha: 0.87);
+			&:hover {
+				color: $primary-color;
+				background-color: rgba($color: $primary-color, $alpha: 0.1);
+			}
+		}
+	}
 
-    &:hover {
-      background-color: rgba($color: $primary-color, $alpha: 0.1);
-    }
+	.contact_us {
+		padding: 1.25rem 2.5rem;
+		border: 1px solid rgba($color: $primary-color, $alpha: 0.2);
+		font-size: 1.25rem;
+		font-weight: 500;
+		color: rgba($color: $primary-color, $alpha: 0.87);
 
-    path {
-      fill: rgba($color: $primary-color, $alpha: 0.87) !important;
-    }
-    margin-bottom: 1rem;
-  }
+		&:hover {
+			background-color: rgba($color: $primary-color, $alpha: 0.1);
+		}
 
-  .credits {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    margin-top: auto;
-    color: rgba($color: $primary-color, $alpha: 0.54);
-    text-transform: uppercase;
-    .social_links {
-      display: flex;
-      gap: 1rem;
+		path {
+			fill: rgba($color: $primary-color, $alpha: 0.87) !important;
+		}
+		margin-bottom: 1rem;
+	}
 
-      path {
-        fill: rgba($color: $primary-color, $alpha: 0.87) !important;
-      }
-    }
-    .social_link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      svg {
-        width: 1.5rem;
-        height: 1.5rem;
-        cursor: pointer;
-      }
-      &:hover {
-        transform: scale(1.2);
-      }
-      transition: all 0.3s ease;
-    }
-  }
+	.credits {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		margin-top: auto;
+		color: rgba($color: $primary-color, $alpha: 0.54);
+		text-transform: uppercase;
+		.social_links {
+			display: flex;
+			gap: 1rem;
+
+			path {
+				fill: rgba($color: $primary-color, $alpha: 0.87) !important;
+			}
+		}
+		.social_link {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			svg {
+				width: 1.5rem;
+				height: 1.5rem;
+				cursor: pointer;
+			}
+			&:hover {
+				transform: scale(1.2);
+			}
+			transition: all 0.3s ease;
+		}
+	}
 }
 
 .overlay {
-  position: fixed;
-  top: 0;
-  height: 100%;
+	position: fixed;
+	top: 0;
+	height: 100%;
 
-  width: 0;
-  backdrop-filter: blur(0);
-  background: #26495e66;
+	width: 0;
+	backdrop-filter: blur(0);
+	background: #26495e66;
 
-  transition: all 0.3s ease-in-out;
-  transition: width 0.2s linear;
-  z-index: 1;
-  &.visible {
-    width: 100%;
-    left: 0;
-    backdrop-filter: blur(10px);
-  }
+	transition: all 0.3s ease-in-out;
+	transition: width 0.2s linear;
+	z-index: 1;
+	&.visible {
+		width: 100%;
+		left: 0;
+		backdrop-filter: blur(10px);
+	}
 }

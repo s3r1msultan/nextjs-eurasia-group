@@ -1,26 +1,32 @@
-import Image from "next/image";
 import React from "react";
-import styles from "../styles/NewsCard.module.css";
+import Image from "next/image";
+import styles from "./NewsCard.module.scss";
+import { INews } from "@/app/constants/interfaces";
 
-const NewsCard = ({
-  image_url,
-  title,
-  desription,
-  date,
-}: {
-  image_url: string;
-  title: string;
-  desription: string;
-  date: string;
-}) => {
-  return (
-    <div className={styles.news_card}>
-      <Image src={image_url} alt={title} width={0} height={0} sizes="100vw" />
-      <h3 className={styles.title}>{title}</h3>
-      <p className={styles.description}>{desription}</p>
-      <span className={styles.date}>{date}</span>
-    </div>
-  );
+const extractFirstParagraph = (html: string): string => {
+	const parser = new DOMParser();
+	const doc = parser.parseFromString(html, "text/html");
+	const firstParagraph = doc.querySelector("p");
+	return firstParagraph ? firstParagraph.innerText : "";
+};
+
+const NewsCard = ({ news }: { news: INews }) => {
+	const firstParagraph = extractFirstParagraph(news.description);
+	console.log(news.image);
+	return (
+		<div className={styles.news_card} key={news.id}>
+			<Image
+				src={news.image}
+				alt={news.title}
+				width={300}
+				height={200}
+				layout="responsive"
+			/>
+			<h2 className={styles.title}>{news.title}</h2>
+			<div className={styles.description}>{firstParagraph}</div>
+			<span className={styles.date}>{news.created_at}</span>
+		</div>
+	);
 };
 
 export default NewsCard;

@@ -5,6 +5,7 @@ import { useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import Link from "next/link";
 import { inter } from "@/pages/Layout";
+import logo from "/public/assets/images/logo.png";
 
 const Header = () => {
 	const [isOpen, showSidebar] = useState(false);
@@ -21,12 +22,11 @@ const Header = () => {
 						</button>
 						<Link href="/">
 							<Image
-								src="/assets/images/logo.png"
+								src={logo}
+								priority
 								alt="Eurasia Group Logo"
-								width={0}
-								height={0}
 								className={styles.logo}
-								sizes="100vw"
+								sizes="100vh"
 							/>
 						</Link>
 

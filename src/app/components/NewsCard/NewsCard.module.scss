@@ -1,27 +1,35 @@
 .news_card {
-  display: flex;
-  flex-direction: column;
-  .title {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
+	// display: flex;
+	// flex-direction: column;
+	text-align: left;
+	img {
+		width: 100%;
+		height: 300px;
+		object-fit: cover;
+		margin-bottom: 16px;
+		border-radius: 8px;
+	}
+	.title {
+		font-size: 24px;
+		line-height: 32px;
+		font-weight: 700;
+		margin-bottom: 8px;
+	}
 
-  .subtitle {
-    font-size: 16px;
-    line-height: 30px;
-    font-weight: 400;
-    max-lines: 3;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-  }
+	.description {
+		font-size: 16px;
+		line-height: 30px;
+		font-weight: 400;
+		max-lines: 3;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+	}
 
-  .date {
-    font-size: 14px;
-    line-height: 30px;
-  }
+	.date {
+		font-size: 14px;
+		line-height: 30px;
+	}
 }

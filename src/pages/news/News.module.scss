@@ -1,0 +1,24 @@
+.news {
+	text-align: center;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+	.section_title {
+		margin-bottom: 16px;
+	}
+
+	.section_subtitle {
+		margin-bottom: 48px;
+		max-width: 50ch;
+	}
+
+	&_grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		column-gap: 32px;
+		row-gap: 40px;
+		width: 100%;
+		justify-content: center;
+	}
+}
