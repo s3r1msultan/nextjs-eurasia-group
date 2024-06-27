@@ -1,62 +1,58 @@
 @import "@/app/styles/constants.scss";
 .values {
-	&_section {
-		text-align: center;
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-		justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	.two_columns {
+		&_row {
+			&_cell {
+				padding-left: 160px;
+				padding-right: 160px;
 
-		.two_columns {
-			&_row {
-				&_cell {
-					padding-left: 160px;
-					padding-right: 160px;
+				text-align: start;
 
-					text-align: start;
+				@include s {
+					padding-right: 36px;
+					padding-left: 36px;
+				}
 
-					@include s {
-						padding-right: 36px;
-						padding-left: 36px;
-					}
+				@include xs {
+					padding-right: 16px;
+					padding-left: 16px;
+				}
 
+				&_icon {
+					margin-bottom: 20px;
+				}
+
+				&_title {
+					font-size: 32px;
+					text-transform: uppercase;
+					margin-bottom: 12px;
 					@include xs {
-						padding-right: 16px;
-						padding-left: 16px;
+						font-size: 20px;
+						margin-bottom: 8px;
 					}
 
-					&_icon {
-						margin-bottom: 20px;
+					@include xxs {
+						font-size: 16px;
 					}
-
-					&_title {
-						font-size: 32px;
-						text-transform: uppercase;
-						margin-bottom: 12px;
-						@include xs {
-							font-size: 20px;
-							margin-bottom: 8px;
-						}
-
-						@include xxs {
-							font-size: 16px;
-						}
-					}
-					&_subtitle {
-						max-width: 40ch;
-						font-size: 14px;
-						line-height: 24px;
-						@include s {
-							max-width: 100%;
-							font-size: 12px;
-							line-height: 18px;
-						}
+				}
+				&_subtitle {
+					max-width: 40ch;
+					font-size: 14px;
+					line-height: 24px;
+					@include s {
+						max-width: 100%;
+						font-size: 12px;
+						line-height: 18px;
 					}
 				}
 			}
 		}
 	}
-
 	&_title {
 		font-size: 3rem;
 		text-transform: uppercase;

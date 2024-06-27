@@ -38,34 +38,6 @@ button {
 section {
 	padding: 100px 0;
 
-	.section {
-		&_title {
-			font-size: 48px;
-			font-weight: 700;
-			text-transform: uppercase;
-
-			@include l {
-				font-size: 40px;
-			}
-
-			@include xs {
-				font-size: 28px;
-			}
-		}
-
-		&_subtitle {
-			font-size: 18px;
-			color: rgba($color: $primary-color, $alpha: 0.87);
-			@include l {
-				font-size: 16px;
-			}
-
-			@include xs {
-				font-size: 14px;
-			}
-		}
-	}
-
 	@include l {
 		padding: 75px 0;
 	}
@@ -76,6 +48,34 @@ section {
 
 	@include xs {
 		padding: 40px 0;
+	}
+}
+
+.section {
+	&_title {
+		font-size: 48px;
+		font-weight: 700;
+		text-transform: uppercase;
+
+		@include l {
+			font-size: 40px;
+		}
+
+		@include xs {
+			font-size: 28px;
+		}
+	}
+
+	&_subtitle {
+		font-size: 18px;
+		color: rgba($color: $primary-color, $alpha: 0.87);
+		@include l {
+			font-size: 16px;
+		}
+
+		@include xs {
+			font-size: 14px;
+		}
 	}
 }
 
@@ -267,7 +267,7 @@ header {
 		justify-content: space-between;
 		text-align: center;
 		&:first-of-type {
-			&_cell {
+			div {
 				padding-top: 100px;
 
 				@include l {

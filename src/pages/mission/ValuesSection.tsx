@@ -10,7 +10,7 @@ import FlowerIcon from "@/app/icons/FlowerIcon";
 
 const ValuesSection = () => {
 	return (
-		<section className={styles.values_section}>
+		<section className={styles.values}>
 			<h2 className={"section_title" + " " + styles.values_title}>
 				<span>Ценности</span>
 			</h2>

@@ -12,9 +12,8 @@ const extractFirstParagraph = (html: string): string => {
 
 const NewsCard = ({ news }: { news: INews }) => {
 	const firstParagraph = extractFirstParagraph(news.description);
-	console.log(news.image);
 	return (
-		<div className={styles.news_card} key={news.id}>
+		<div className={styles.news_card}>
 			<Image
 				src={news.image}
 				alt={news.title}

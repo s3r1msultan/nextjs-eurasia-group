@@ -1,16 +1,15 @@
 import { create } from "zustand";
-import { INews } from "../constants/interfaces";
-const useNews = create((set) => ({
-  news: [],
-  setNews: (news: INews[]) => set({ news }),
-  fetchNews: async () => {
-    const res = await fetch("/api/news");
-    const data = await res.json();
-    set({ news: data });
+import { INews, NewsState, category } from "../constants/interfaces";
+export const useNewsStore = create<NewsState>((set) => ({
+  newsList: [],
+  category: "Partner News",
+  pagination: {
+    currentPage: 1,
+    totalPages: 1,
   },
-  fetchNewsById: async (id: number) => {
-    const res = await fetch(`/api/news/${id}`);
-    const data = await res.json();
-    set({ news: data });
-  },
+  error: null,
+  setNewsList: (newsList) => set({ newsList }),
+  setFilters: (category: category) => set((state) => ({...state, category } )),
+  setPagination: (pagination) => set({ pagination }),
+  setError: (error) => set({ error }),
 }));
