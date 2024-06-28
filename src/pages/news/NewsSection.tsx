@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import styles from "./News.module.scss";
 import { getWhatsNewRecords } from "@/app/services/NewsService";
 import NewsCard from "@/app/components/NewsCard/NewsCard";
 import { INews, category } from "@/app/constants/interfaces";
 import { useNewsStore } from "@/app/stores/NewsStore";
 import Link from "next/link";
+import { LoadingContext } from "@/app/components/Loader/Loader";
 const NewsSection = () => {
 	const {
 		newsList,
@@ -17,9 +18,13 @@ const NewsSection = () => {
 		setError,
 	} = useNewsStore();
 
+	const [isLoading, setIsLoading] = useContext(LoadingContext);
+
 	useEffect(() => {
 		const fetchNewsList = async () => {
 			try {
+				setIsLoading(true);
+
 				const data: { data: INews[] } = await getWhatsNewRecords();
 				setNewsList(data.data);
 				setPagination({
@@ -28,6 +33,8 @@ const NewsSection = () => {
 				});
 			} catch (error: any) {
 				setError(error.message);
+			} finally {
+				setIsLoading(false);
 			}
 		};
 
