@@ -6,6 +6,7 @@ import { INews, category } from "@/app/constants/interfaces";
 import { useNewsStore } from "@/app/stores/NewsStore";
 import Link from "next/link";
 import { LoadingContext } from "@/app/components/Loader/Loader";
+
 const NewsSection = () => {
 	const {
 		newsList,
@@ -18,7 +19,7 @@ const NewsSection = () => {
 		setError,
 	} = useNewsStore();
 
-	const [isLoading, setIsLoading] = useContext(LoadingContext);
+	const { isLoading, setIsLoading } = useContext(LoadingContext);
 
 	useEffect(() => {
 		const fetchNewsList = async () => {
