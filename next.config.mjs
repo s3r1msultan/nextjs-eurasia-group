@@ -1,17 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
-  images:{
+  sassOptions: {
+    includePaths: ["/src/app/*/*.scss", "/src/pages/*.scss"],
+  },
+  images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'api.eurasia.crocos.kz',
-        port: '',
-        pathname: '/storage/whats-new/**',
+        protocol: "https",
+        hostname: "api.eurasia.crocos.kz",
+        port: "",
+        pathname: "/storage/whats-new/**",
       },
     ],
-  
-  }
+  },
 };
 
 export default nextConfig;

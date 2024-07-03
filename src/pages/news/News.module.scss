@@ -116,33 +116,83 @@
 }
 
 .news_detail {
+  color: $primary-color;
   margin: 0 auto;
   width: 100%;
   max-width: 960px;
-  .backButton {
-    background-color: $primary-color;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
+  margin-top: 125px;
 
   .news_header {
     margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .back_button {
+      background-color: rgba($color: $accent-color-1, $alpha: 0.1);
+      font-size: 16px;
+      font-weight: 500;
+      color: $primary-color;
+      border: none;
+      padding: 10px 16px;
+      cursor: pointer;
+      border-radius: 16px;
+      position: absolute;
+      bottom: 0;
+      left: -14vw;
+      transition: all 0.3s ease-in-out;
+      height: max-content;
 
+      @include l {
+        margin-bottom: 16px;
+        position: relative;
+        left: 0;
+        bottom: unset;
+      }
+
+      .icon_wrapper {
+        display: flex;
+        align-items: center;
+
+        &::after {
+          content: "Назад";
+
+          @include xs {
+            display: none;
+          }
+
+          margin-left: 8px;
+          font-size: 14px;
+          font-weight: 500;
+          color: rgba($color: $primary-color, $alpha: 0.74);
+        }
+      }
+
+      path {
+        fill: $primary-color;
+      }
+
+      &:hover {
+        background-color: rgba($color: $accent-color-1, $alpha: 0.3);
+      }
+    }
     .news_title {
-      font-weight: bold;
       text-transform: unset;
+      line-height: 56px;
+
+      @include xs {
+        line-height: 36px;
+      }
     }
 
     .news_date {
       font-size: 16px;
+      line-height: 30px;
       margin-bottom: 8px;
       color: rgba($color: $primary-color, $alpha: 0.74);
       @include xs {
         font-size: 14px;
+        margin-bottom: 6px;
       }
     }
   }

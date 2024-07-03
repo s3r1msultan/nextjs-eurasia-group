@@ -2,12 +2,14 @@ import React from "react";
 import styles from "./Sidebar.module.scss";
 import useOnClickOutside from "@/app/hooks/useOnClickOutside";
 import Link from "next/link";
-import { inter } from "@/pages/Layout";
+
 import ArrowTopRightIcon from "@/app/icons/ArrowTopRightIcon";
 import FacebookIcon from "@/app/icons/FacebookIcon";
 import InstagramIcon from "@/app/icons/InstagramIcon";
 import YoutubeIcon from "@/app/icons/YoutubeIcon";
 import ContactButton from "../ContactButton/ContactButton";
+import { Inter } from "next/font/google";
+const inter = Inter({ subsets: ["latin", "cyrillic"] });
 
 interface SidebarProps {
   isOpen: boolean;
@@ -48,7 +50,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, showSidebar }) => {
             <li>Что нового</li>
           </Link>
         </ul>
-        <ContactButton className={styles.contact_us} />
+        <ContactButton className={styles.contact_us} onClick={() => showSidebar(false)} />
         <div className={styles.credits}>
           <div className={styles.social_links}>
             <Link className={styles.social_link + " " + styles.facebook} href="">

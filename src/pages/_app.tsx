@@ -2,15 +2,17 @@ import "@/app/styles/global.scss";
 import type { AppProps } from "next/app";
 import RootLayout from "./Layout";
 import { LoadingContext, useLoading } from "@/app/components/Loader/Loader";
+import { ToastContainer } from "react-toastify";
 
 export default function App({ Component, pageProps }: AppProps) {
-	const { isLoading, setIsLoading } = useLoading();
+  const { isLoading, setIsLoading } = useLoading();
 
-	return (
-		<LoadingContext.Provider value={{ isLoading, setIsLoading }}>
-			<RootLayout>
-				<Component {...pageProps} />
-			</RootLayout>
-		</LoadingContext.Provider>
-	);
+  return (
+    <LoadingContext.Provider value={{ isLoading, setIsLoading }}>
+      <RootLayout>
+        <Component {...pageProps} />
+        <ToastContainer />
+      </RootLayout>
+    </LoadingContext.Provider>
+  );
 }
