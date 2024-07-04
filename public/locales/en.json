@@ -1,6 +1,8 @@
 {
-  "contactUs": "Contact Us",
+  "contactUsButton": "Contact Us",
   "back": "Back",
+  "backToHome": "Back to Home",
+
   "sidebar": {
     "aboutCompany": "About Company",
     "ourMission": "Our Mission",
@@ -95,10 +97,24 @@
     }
   },
   "whatsNew": {
-    "title": " What's New",
+    "title": "What's New",
     "newsSection": {
       "partnersNews": "Partners News",
       "agriculturalNews": "Agricultural News"
     }
+  },
+  "contactUs": {
+    "title": "Contact Us",
+    "nameLabel": "Name",
+    "nameInputPlaceholder": "Enter your name",
+    "emailLabel": "Email",
+    "emailInputPlaceholder": "Enter your email",
+    "phoneLabel": "Phone",
+    "policyAgreementLabel": "I agree to the",
+    "policyAgreementLink": "privacy policy",
+    "sendMessage": "Send",
+    "sendingMessage": "Sending...",
+    "successMessage": "Form submitted successfully!",
+    "errorMessage": "An error occurred while submitting the form. Please try again later."
   }
 }

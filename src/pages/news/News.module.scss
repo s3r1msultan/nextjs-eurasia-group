@@ -102,15 +102,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 12px;
     button {
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: $primary-color;
       font-weight: 500;
       border-radius: 50%;
-      width: 100%;
-      height: 100%;
-      background-color: rgba($color: $accent-color-1, $alpha: 0.1);
+      font-size: 16px;
+      width: 38px;
+      height: 38px;
       padding: 8px;
+      font-weight: 500;
+      background-color: unset;
+
+      &.active {
+        background-color: rgba($color: $accent-color-1, $alpha: 0.1);
+      }
+
+      &:first-of-type,
+      &:last-of-type {
+        background-color: unset;
+      }
+
+      &:last-of-type {
+        transform: rotate(180deg);
+      }
     }
   }
 }

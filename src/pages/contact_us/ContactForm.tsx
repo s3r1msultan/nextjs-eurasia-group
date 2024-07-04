@@ -5,6 +5,7 @@ import { Bounce, toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./Contact.module.scss";
 import { schema } from "@/app/constants/validation";
+import { useTranslations } from "next-intl";
 
 const ContactForm: React.FC = () => {
   const {
@@ -14,6 +15,7 @@ const ContactForm: React.FC = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
+  const t = useTranslations("contactUs");
 
   const [phoneValue, setPhoneValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -64,32 +66,34 @@ const ContactForm: React.FC = () => {
 
   return (
     <div className={styles.contact_form_wrapper}>
-      <h2 className={`section_title ${styles.title}`}>Связаться с нами</h2>
+      <h2 className={`section_title ${styles.title}`}>{t("title")}</h2>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.contact_form}>
         <div className={styles.form_group}>
-          <label htmlFor="name">Имя</label>
+          <label htmlFor="name">{t("nameLabel")}</label>
           <Controller
             name="name"
             control={control}
-            render={({ field }) => <input {...field} type="text" placeholder="Введите имя" value={field.value || ""} />}
+            render={({ field }) => (
+              <input {...field} type="text" placeholder={t("nameInputPlaceholder")} value={field.value || ""} />
+            )}
           />
           {errors.name && <span className={styles.error}>{errors.name.message}</span>}
         </div>
 
         <div className={styles.form_group}>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">{t("emailLabel")}</label>
           <Controller
             name="email"
             control={control}
             render={({ field }) => (
-              <input {...field} type="email" placeholder="Введите email" value={field.value || ""} />
+              <input {...field} type="email" placeholder={t("emailInputPlaceholder")} value={field.value || ""} />
             )}
           />
           {errors.email && <span className={styles.error}>{errors.email.message}</span>}
         </div>
 
         <div className={styles.form_group}>
-          <label htmlFor="phone">Телефон</label>
+          <label htmlFor="phone">{t("phoneLabel")}</label>
           <Controller
             name="phone"
             control={control}
@@ -122,7 +126,7 @@ const ContactForm: React.FC = () => {
                   value={field.value ? "true" : "false"}
                 />
                 <span>
-                  Я соглашаюсь с <a href="#">политикой конфиденциальности</a>
+                  {t("policyAgreementLabel")} <a href="#">{t("policyAgreementLink")}</a>
                 </span>
               </div>
             )}
@@ -131,7 +135,7 @@ const ContactForm: React.FC = () => {
         </div>
 
         <button type="submit" disabled={isLoading}>
-          {isLoading ? "Отправка..." : "Отправить"}
+          {isLoading ? t("sendingMessage") : t("sendMessage")}
         </button>
       </form>
       <ToastContainer />

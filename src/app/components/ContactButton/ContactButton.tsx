@@ -10,7 +10,7 @@ const ContactButton = ({ className, onClick, ...props }: { className?: string; o
   return (
     <Link href={"/contact_us"} className={styles.contact_us_wrapper}>
       <button className={`${styles.contact_us} ${className}`} {...props} onClick={onClick}>
-        <span>{t("contactUs")}</span>
+        <span>{t("contactUsButton")}</span>
         <ArrowTopRightIcon className={styles.arrow} />
       </button>
     </Link>

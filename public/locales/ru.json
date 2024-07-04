@@ -1,7 +1,7 @@
 {
-  "contactUs": "Связаться с нами",
-
+  "contactUsButton": "Связаться с нами",
   "back": "Назад",
+  "backToHome": "На Главную",
   "sidebar": {
     "aboutCompany": "О компании",
     "ourMission": "Наша миссия",
@@ -101,5 +101,19 @@
       "partnersNews": "Новости партнеров",
       "agriculturalNews": "Новости в сельском хозяйстве"
     }
+  },
+  "contactUs": {
+    "title": "Связаться с нами",
+    "nameLabel": "Имя",
+    "nameInputPlaceholder": "Введите имя",
+    "emailLabel": "Email",
+    "emailInputPlaceholder": "Введите email",
+    "phoneLabel": "Телефон",
+    "policyAgreementLabel": "Я соглашаюсь с",
+    "policyAgreementLink": "политикой конфиденциальности",
+    "sendMessage": "Отправить",
+    "sendingMessage": "Отправка...",
+    "successMessage": "Форма успешно отправлена!",
+    "errorMessage": "Произошла ошибка при отправке формы. Пожалуйста, повторите позже."
   }
 }
