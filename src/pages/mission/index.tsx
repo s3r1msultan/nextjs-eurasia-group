@@ -11,4 +11,12 @@ const OurMissionPage = () => {
 	);
 };
 
+export async function getStaticProps(context: { locale: any }) {
+	return {
+		props: {
+			messages: (await import(`/public/locales/${context.locale}.json`))
+				.default,
+		},
+	};
+}
 export default OurMissionPage;

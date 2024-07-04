@@ -7,15 +7,17 @@ import BulbIcon from "@/app/icons/BulbIcon";
 import LayersIcon from "@/app/icons/LayersIcon";
 import GraphIcon from "@/app/icons/GraphIcon";
 import FlowerIcon from "@/app/icons/FlowerIcon";
+import { useTranslations } from "next-intl";
 
 const ValuesSection = () => {
+	const t = useTranslations("ourMission.valuesSection");
 	return (
 		<section className={styles.values}>
 			<h2 className={"section_title" + " " + styles.values_title}>
-				<span>Ценности</span>
+				<span>{t("title")}</span>
 			</h2>
 			<p className={"section_subtitle" + " " + styles.values_subtitle}>
-				которые помогают выполнять нашу миссию
+				{t("subtitle")}
 			</p>
 			<ul className={"two_columns" + " " + styles.two_columns}>
 				<li className={"two_columns_row" + " " + styles.two_columns_row}>
@@ -30,7 +32,7 @@ const ValuesSection = () => {
 								" " +
 								styles.two_columns_row_cell_title
 							}>
-							Голод к успеху
+							{t("hungerForSuccess.title")}
 						</h3>
 						<p
 							className={
@@ -38,8 +40,7 @@ const ValuesSection = () => {
 								" " +
 								styles.two_columns_row_cell_subtitle
 							}>
-							Мы всегда амбициозны, страстны и энергичны в наших мечтах и
-							достижениях
+							{t("hungerForSuccess.description")}
 						</p>
 					</div>
 					<div
@@ -53,7 +54,7 @@ const ValuesSection = () => {
 								" " +
 								styles.two_columns_row_cell_title
 							}>
-							Любовь
+							{t("love.title")}
 						</h3>
 						<p
 							className={
@@ -61,8 +62,7 @@ const ValuesSection = () => {
 								" " +
 								styles.two_columns_row_cell_subtitle
 							}>
-							Любовь - это фундамент, на котором мы строим наш бизнес, отношения
-							в команде, с клиентами и партнёрами
+							{t("love.description")}
 						</p>
 					</div>
 				</li>
@@ -78,7 +78,7 @@ const ValuesSection = () => {
 								" " +
 								styles.two_columns_row_cell_title
 							}>
-							Команда
+							{t("team.title")}
 						</h3>
 						<p
 							className={
@@ -86,8 +86,7 @@ const ValuesSection = () => {
 								" " +
 								styles.two_columns_row_cell_subtitle
 							}>
-							Мы высокомотивированные на успех профессионалы, эксперты и
-							консультанты, всегда готовы прийти на помощь и оказать поддержку
+							{t("team.description")}
 						</p>
 					</div>
 					<div
@@ -101,7 +100,7 @@ const ValuesSection = () => {
 								" " +
 								styles.two_columns_row_cell_title
 							}>
-							Инновации
+							{t("innovation.title")}
 						</h3>
 						<p
 							className={
@@ -109,8 +108,7 @@ const ValuesSection = () => {
 								" " +
 								styles.two_columns_row_cell_subtitle
 							}>
-							Инноавции - неотъемлемая часть нашей жизни, а безграничность в
-							росте и развитии всего, что нас окружает, делает нас уникальными
+							{t("innovation.description")}
 						</p>
 					</div>
 				</li>
@@ -126,7 +124,7 @@ const ValuesSection = () => {
 								" " +
 								styles.two_columns_row_cell_title
 							}>
-							Осознанность
+							{t("mindfulness.title")}
 						</h3>
 						<p
 							className={
@@ -134,8 +132,7 @@ const ValuesSection = () => {
 								" " +
 								styles.two_columns_row_cell_subtitle
 							}>
-							Мы четко знаем, чего мы хотим в жизни, зачем пришли в нашу
-							компанию и что необходимо для наших любимых клиентов и партнеров
+							{t("mindfulness.description")}
 						</p>
 					</div>
 					<div
@@ -149,7 +146,7 @@ const ValuesSection = () => {
 								" " +
 								styles.two_columns_row_cell_title
 							}>
-							Благосостояние
+							{t("wellBeing.title")}
 						</h3>
 						<p
 							className={
@@ -157,10 +154,7 @@ const ValuesSection = () => {
 								" " +
 								styles.two_columns_row_cell_subtitle
 							}>
-							Мы постоянно работаем над тем, чтобы увеличить прибыль наших
-							клиентов партнеров, сотрудников и акционеров. Партнерство с нами -
-							это взаимовыгодное сотрудничество, которое приводит к росту
-							благосостояния всех сторон
+							{t("wellBeing.description")}
 						</p>
 					</div>
 				</li>
@@ -176,7 +170,7 @@ const ValuesSection = () => {
 								" " +
 								styles.two_columns_row_cell_title
 							}>
-							Синергия
+							{t("synergy.title")}
 						</h3>
 						<p
 							className={
@@ -184,8 +178,7 @@ const ValuesSection = () => {
 								" " +
 								styles.two_columns_row_cell_subtitle
 							}>
-							Наши жизненные цели и ценности совпадают с целями и ценностями
-							нашей компании
+							{t("synergy.description")}
 						</p>
 					</div>
 					<div

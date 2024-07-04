@@ -3,28 +3,24 @@ import Wrapper from "@/app/components/Wrapper/Wrapper";
 import Image from "next/image";
 import styles from "@/Mission.module.scss";
 import intro_img from "/public/assets/images/our_mission_intro.png";
+import { useTranslations } from "next-intl";
 
 const IntroSection = () => {
+	const t = useTranslations("ourMission");
 	return (
 		<section className="intro">
 			<Wrapper>
 				<div className="intro_content">
 					<h1 className="intro_title">
-						<span>Наша</span> миссия
+						<span>{t("introTitle1")}</span> {t("introTitle2")}
 					</h1>
-					<p className="intro_subtitle">
-						Мы кормим мир, помогая фермерам внедрять и<br /> применять
-						инновационные решения для развития
-						<br /> сельского хозяйства и производства продукции
-						<br />
-						наивысшего качества
-					</p>
+					<p className="intro_subtitle">{t("introDescription")}</p>
 					<ContactButton />
 				</div>
 				<div className="intro_image">
 					<Image src={intro_img} alt="intro" />
 					<div className="section_title overlay">
-						<span>Наша</span> <span>миссия</span>
+						<span>{t("introTitle1")}</span> <span>{t("introTitle2")}</span>
 					</div>
 				</div>
 			</Wrapper>

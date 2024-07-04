@@ -1,0 +1,103 @@
+{
+    "sidebar": {
+      "aboutCompany": "About Company",
+      "ourMission": "Our Mission",
+      "whatsNew": "What's New",
+      "contactUs": "Contact Us"
+    },
+    "home": {
+      "introDescription": "Today we are the only company in the Kazakhstani agricultural market, which for more than 20 years proudly presents the best equipment from world leaders, such as:",
+      "introCompanies": [
+        "John Deere (USA)",
+        "Lindsay Irrigation (USA)",
+        "JCB (UK)",
+        "Grimme (Germany)",
+        "Väderstad (Sweden)"
+      ],
+      "digitsSection": {
+        "title1": "We are in",
+        "title2": "digits",
+        "yearsOnMarket": "years on the market",
+        "unitsOfEquipment": "units of equipment",
+        "yearsInIrrigationMarket": "years in the irrigation market",
+        "peopleInAftersales": "people work in Aftersales",
+        "yearsAsJohnDeereDealer": "years as a national John Deere dealer",
+        "employeesInAllRegions": "employees in all regions",
+        "partsWarehousesValue": "parts warehouses worth more than $16 million",
+        "representationsInKazakhstanAndKyrgyzstan": "representations in Kazakhstan and 1 in Kyrgyzstan",
+        "serviceVehicles": "service vehicles",
+        "directInvestmentsInKazakhstan": "direct investments in Kazakhstan",
+        "marketShareInPremiumSegment": "market share in the Premium segment"
+      },
+      "solutionsSection": {
+      "title": "Unique Solutions",
+      "subtitle": "Over the years, we have created a developed network to provide farmers with unique comprehensive solutions in the agriculture of Kazakhstan and Kyrgyzstan",
+      "flexboxItems": [
+        {
+          "title": "3.6",
+          "subtitle": "million hectares are sown with John Deere seeding solutions"
+        },
+        {
+          "title": "2.5",
+          "subtitle": "million hectares digitized with John Deere solutions"
+        },
+        {
+          "title": "6.5",
+          "subtitle": "million hectares harvested with John Deere harvesting solutions"
+        },
+        {
+          "title": "16.3",
+          "subtitle": "thousand hectares irrigated with irrigation solutions"
+        },
+        {
+          "title": ">2K",
+          "subtitle": "farmers earn with our solutions"
+        }
+      ]
+    }
+    },
+    "ourMission": {
+      "introTitle1": "Our",
+      "introTitle2": "mission",
+      "introDescription": "We feed the world by helping farmers adopt and apply innovative solutions to develop agriculture and produce the highest quality products possible",
+      "valuesSection": {
+        "title": "Values",
+        "subtitle":"that help fulfill our mission",
+        "hungerForSuccess": {
+          "title": "Hunger for Success",
+          "description": "We are always ambitious, passionate, and energetic in our dreams and achievements"
+        },
+        "love": {
+          "title": "Love",
+          "description": "Love is the foundation on which we build our business, relationships within the team, with clients, and partners"
+        },
+        "team": {
+          "title": "Team",
+          "description": "We are highly motivated professionals, experts, and consultants, always ready to help and provide support"
+        },
+        "innovation": {
+          "title": "Innovation",
+          "description": "Innovation is an integral part of our lives, and the boundlessness in the growth and development of everything that surrounds us makes us unique"
+        },
+        "mindfulness": {
+          "title": "Mindfulness",
+          "description": "We clearly know what we want in life, why we came to our company, and what is necessary for our beloved clients and partners"
+        },
+        "wellBeing": {
+          "title": "Well-being",
+          "description": "We constantly work to increase the profits of our clients, partners, employees, and shareholders. Partnership with us is a mutually beneficial cooperation that leads to the growth of well-being for all parties"
+        },
+        "synergy": {
+          "title": "Synergy",
+          "description": "Our life goals and values align with the goals and values of our company"
+        }
+      }
+    },
+    "whatsNew": {
+        "title": " What's New",
+        "newsSection": {
+          "partnersNews": "Partners News",
+          "agriculturalNews": "Agricultural News"
+        }
+    }
+  }

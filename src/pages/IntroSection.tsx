@@ -3,11 +3,14 @@ import styles from "./Home.module.scss";
 import Wrapper from "@/app/components/Wrapper/Wrapper";
 import Image from "next/image";
 import intro_img from "../../public/assets/images/main_intro.png";
-import ArrowTopRightIcon from "@/app/icons/ArrowTopRightIcon";
-import Link from "next/link";
 import ContactButton from "@/app/components/ContactButton/ContactButton";
+import { useTranslation } from "next-i18next";
+import { useTranslations } from "next-intl";
 
 const IntroSection = () => {
+	const t = useTranslations("home");
+	const companies = ["0", "1", "2", "3", "4"] as const;
+
 	return (
 		<section className="intro">
 			<Wrapper>
@@ -15,22 +18,16 @@ const IntroSection = () => {
 					<h1 className="intro_title">
 						<span>Eurasia</span> Group
 					</h1>
-					<p className="intro_subtitle">
-						Сегодня мы — единственная компания на казахстанском
-						сельскохозяйственном рынке, которая уже более 20-ти лет с гордостью
-						представляет лучшую технику от мировых лидеров, таких как:
-					</p>
+					<p className="intro_subtitle">{t("introDescription")}</p>
 					<ul className={styles.intro_list}>
-						<li>John Deere (США)</li>
-						<li>Lindsay Irrigation (США)</li>
-						<li>JCB (Великобритания)</li>
-						<li>Grimme (Германия)</li>
-						<li>Väderstad (Швеция)</li>
+						{companies.map((company: string, index: number) => (
+							<li key={index}>{t(`introCompanies.${company}`)}</li>
+						))}
 					</ul>
 					<ContactButton className={styles.contact_us} />
 				</div>
 				<div className="intro_image">
-					<Image src={intro_img} alt="intro" objectFit="contain" />
+					<Image src={intro_img} alt="intro" objectFit="cover" />
 					<div className="section_title overlay">
 						<span>Eurasia</span> <span>Group</span>
 					</div>
@@ -39,5 +36,14 @@ const IntroSection = () => {
 		</section>
 	);
 };
+
+export async function getStaticProps(context: { locale: any }) {
+	return {
+		props: {
+			messages: (await import(`/public/locales/${context.locale}.json`))
+				.default,
+		},
+	};
+}
 
 export default IntroSection;

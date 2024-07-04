@@ -2,7 +2,6 @@ import Head from "next/head";
 import IntroSection from "./IntroSection";
 import DigitsSection from "./DigitsSection";
 import SolutionsSection from "./SolutionsSection";
-import Layout from "./Layout";
 
 export default function Home() {
 	return (
@@ -21,4 +20,13 @@ export default function Home() {
 			<SolutionsSection />
 		</>
 	);
+}
+
+export async function getStaticProps(context: { locale: any }) {
+	return {
+		props: {
+			messages: (await import(`/public/locales/${context.locale}.json`))
+				.default,
+		},
+	};
 }

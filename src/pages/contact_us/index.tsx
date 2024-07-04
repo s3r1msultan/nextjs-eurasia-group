@@ -10,21 +10,35 @@ import ContactForm from "./ContactForm";
 import Wrapper from "@/app/components/Wrapper/Wrapper";
 
 const ContactPage = () => {
-  return (
-    <>
-      <div className={styles.contact_us}>
-        <div className={styles.left_part}>
-          <Wrapper>
-            <ContactForm />
-          </Wrapper>
-        </div>
+	return (
+		<>
+			<div className={styles.contact_us}>
+				<div className={styles.left_part}>
+					<Wrapper>
+						<ContactForm />
+					</Wrapper>
+				</div>
 
-        <div className={styles.right_part}>
-          <Image src={contact_us_image} alt="Eurasia Group Logo" className={styles.contact_us_image} sizes="100vh" />
-        </div>
-      </div>
-    </>
-  );
+				<div className={styles.right_part}>
+					<Image
+						src={contact_us_image}
+						alt="Eurasia Group Logo"
+						className={styles.contact_us_image}
+						sizes="100vh"
+					/>
+				</div>
+			</div>
+		</>
+	);
 };
+
+export async function getStaticProps(context: { locale: any }) {
+	return {
+		props: {
+			messages: (await import(`/public/locales/${context.locale}.json`))
+				.default,
+		},
+	};
+}
 
 export default ContactPage;
