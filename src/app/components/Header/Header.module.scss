@@ -77,6 +77,11 @@
         border-radius: 50px;
         color: $bg-color;
         border-color: $bg-color;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: rgba($color: $primary-color, $alpha: 0.2);
+        }
 
         path {
           fill: $bg-color;
@@ -86,6 +91,10 @@
       .locale_button {
         color: $bg-color;
         background-color: rgba($color: $bg-color, $alpha: 0.1);
+        transition: all 0.3s ease;
+        &:hover {
+          background-color: rgba($color: $bg-color, $alpha: 0.3);
+        }
       }
     }
   }
@@ -154,6 +163,11 @@
     background-color: rgba($color: $primary-color, $alpha: 0.1);
     font-size: 14px;
     cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: rgba($color: $primary-color, $alpha: 0.2);
+    }
 
     &.left_part {
       display: none;

@@ -8,75 +8,55 @@ import styles from "./News.module.scss";
 import Image from "next/image";
 import Wrapper from "@/app/components/Wrapper/Wrapper";
 import ArrowLeftIcon from "@/app/icons/ArrowLeftIcon";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
 interface IProps {
-	news: INews;
+  news: INews;
 }
 
 interface IParams extends ParsedUrlQuery {
-	id: string;
+  id: string;
 }
 
 const NewsDetailPage = ({ news }: IProps) => {
-	return (
-		<Wrapper>
-			<div className={styles.news_detail}>
-				<div className={styles.news_header}>
-					<button
-						className={styles.back_button}
-						onClick={() => window.history.back()}>
-						<span className={styles.icon_wrapper}>
-							<ArrowLeftIcon />
-						</span>
-					</button>
-					<span className={styles.news_date}>{news.created_at}</span>
+  const t = useTranslations();
+  return (
+    <Wrapper>
+      <div className={styles.news_detail}>
+        <div className={styles.news_header}>
+          <button className={styles.back_button} onClick={() => window.history.back()}>
+            <ArrowLeftIcon />
 
-					<h1 className={"section_title" + " " + styles.news_title}>
-						{news.title}
-					</h1>
-				</div>
-				<Image
-					src={news.image}
-					alt={news.title}
-					width={960}
-					height={560}
-					className={styles.news_image}
-				/>
-				<div
-					className={styles.news_content}
-					dangerouslySetInnerHTML={{ __html: news.description }}
-				/>
-			</div>
-		</Wrapper>
-	);
+            <span className={styles.back_text}>{t("back")}</span>
+          </button>
+          <span className={styles.news_date}>{news.created_at}</span>
+
+          <h1 className={"section_title" + " " + styles.news_title}>{news.title}</h1>
+        </div>
+        <Image src={news.image} alt={news.title} width={960} height={560} className={styles.news_image} />
+        <div className={styles.news_content} dangerouslySetInnerHTML={{ __html: news.description }} />
+      </div>
+    </Wrapper>
+  );
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-	const { id } = context.params as IParams;
+  const { id } = context.params as IParams;
 
-	try {
-		const response = await getWhatsNewRecordById(Number(id));
-		return {
-			props: {
-				news: response.data,
-			},
-		};
-	} catch (error) {
-		console.log(error);
-		return {
-			notFound: true,
-		};
-	}
+  try {
+    const response = await getWhatsNewRecordById(Number(id));
+    return {
+      props: {
+        news: response.data,
+        messages: (await import(`/public/locales/${context.locale}.json`)).default,
+      },
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      notFound: true,
+    };
+  }
 };
-
-export async function getStaticProps(context: { locale: any }) {
-	return {
-		props: {
-			messages: (await import(`/public/locales/${context.locale}.json`))
-				.default,
-		},
-	};
-}
 
 export default NewsDetailPage;

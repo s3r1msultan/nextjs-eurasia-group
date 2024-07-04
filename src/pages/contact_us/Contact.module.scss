@@ -41,6 +41,14 @@
   flex-direction: column;
   gap: 40px;
 
+  @include m {
+    gap: 36px;
+  }
+
+  @include xs {
+    gap: 24px;
+  }
+
   &_wrapper {
     max-width: 675px;
     width: 100%;
@@ -66,8 +74,9 @@
       display: block;
       margin-bottom: 8px;
       font-size: 18px;
+      font-weight: 500;
       line-height: 32px;
-      @include s {
+      @include m {
         font-size: 16px;
         line-height: 28px;
       }
@@ -75,6 +84,10 @@
       @include xs {
         font-size: 14px;
         line-height: 24px;
+      }
+
+      @include xxs {
+        margin-bottom: 4px;
       }
     }
 
@@ -90,6 +103,17 @@
       line-height: 32px;
       color: $primary-color;
       border-bottom: 1px solid rgba($color: $primary-color, $alpha: 0.2);
+
+      @include m {
+        font-size: 16px;
+        line-height: 28px;
+      }
+
+      @include xs {
+        font-size: 14px;
+        line-height: 24px;
+        padding: 8px 0;
+      }
     }
 
     .error {
@@ -150,6 +174,15 @@
       color: $accent-color-1;
       text-decoration: none;
       transition: all 0.3s ease;
+      font-size: 18px;
+
+      @include m {
+        font-size: 16px;
+      }
+
+      @include xs {
+        font-size: 14px;
+      }
 
       &:hover {
         text-decoration: underline;
@@ -170,6 +203,16 @@
     line-height: 32px;
     cursor: pointer;
     transition: all 0.3s ease;
+
+    @include m {
+      font-size: 16px;
+      line-height: 28px;
+    }
+
+    @include xs {
+      font-size: 14px;
+      line-height: 24px;
+    }
 
     &:hover {
       background-color: rgba($color: $accent-color-1, $alpha: 0.8);
