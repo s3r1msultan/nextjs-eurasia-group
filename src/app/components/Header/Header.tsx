@@ -24,7 +24,7 @@ const Header = ({ is_contact_us }: { is_contact_us: boolean }) => {
               <Image src={logo} priority alt="Eurasia Group Logo" className={styles.logo} />
             </Link>
 
-            {!is_contact_us && <div className={styles.locale_button}>RU</div>}
+            <div className={`${styles.locale_button} ${is_contact_us ? styles.left_part : ""}`}>RU</div>
           </div>
         </Wrapper>
         {is_contact_us && (

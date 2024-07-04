@@ -7,7 +7,21 @@
     justify-content: space-between;
     padding-top: 24px;
     border-top: solid 1px rgba($color: $primary-color, $alpha: 0.1);
+    margin-top: 100px;
+
+    @include l {
+      margin-top: 75px;
+    }
+
+    @include m {
+      margin-top: 60px;
+    }
+
+    @include xs {
+      margin-top: 40px;
+    }
     &.contact_us {
+      margin-top: 0 !important;
     }
 
     @include xxs {
@@ -28,12 +42,23 @@
     gap: 16px;
 
     &.right_part {
+      transition: all 0.3s ease;
       a {
         border-color: $bg-color;
-        border-width: 1px;
+
+        @include s {
+          border-color: rgba(10, 41, 16, 0.2);
+
+          &:hover {
+            border-color: rgba(10, 41, 16, 0.5);
+          }
+        }
       }
       path {
         fill: $bg-color;
+        @include s {
+          fill: unset;
+        }
       }
     }
   }

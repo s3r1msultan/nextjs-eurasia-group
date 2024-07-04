@@ -5,17 +5,60 @@
   &.is_contact_us {
     display: flex;
     justify-content: space-between;
+
+    @include s {
+      display: block;
+    }
     & > * {
       width: 50%;
     }
 
     & > *:first-child {
       padding-right: 0;
+
+      .left_part {
+        justify-content: flex-start;
+        position: relative;
+        gap: 24px;
+        .logo {
+          position: absolute;
+          height: auto;
+          top: 0;
+          left: 6.25vw;
+
+          @include xl {
+            position: static;
+          }
+
+          @include s {
+            width: 100%;
+          }
+        }
+
+        @include s {
+          justify-content: space-between;
+          gap: 16px;
+        }
+      }
+
+      @include s {
+        padding-right: 36px;
+      }
+
+      @include xs {
+        padding-right: 16px;
+      }
+
+      @include s {
+        width: 100%;
+      }
     }
 
-    .left_part {
-      justify-content: flex-start;
-      gap: 24px;
+    & > *:last-child {
+      @include s {
+        display: none;
+        width: 0;
+      }
     }
 
     .right_part {
@@ -95,6 +138,11 @@
       display: flex;
       align-items: center;
       width: 50%;
+
+      @include s {
+        width: 100%;
+        display: block;
+      }
     }
   }
   .locale_button {
@@ -106,5 +154,14 @@
     background-color: rgba($color: $primary-color, $alpha: 0.1);
     font-size: 14px;
     cursor: pointer;
+
+    &.left_part {
+      display: none;
+
+      @include s {
+        display: block;
+        width: unset;
+      }
+    }
   }
 }

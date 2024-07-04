@@ -12,7 +12,7 @@ const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <>
       <Header is_contact_us={isContactUs} />
-      <main className={`${inter.className}`}>{children}</main>
+      <main className={`${inter.className} main`}>{children}</main>
       <Footer is_contact_us={isContactUs} />
     </>
   );

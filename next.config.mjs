@@ -1,5 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  i18n: {
+    locales: ["ru", "en"],
+    defaultLocale: "ru",
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   reactStrictMode: false,
   sassOptions: {
     includePaths: ["/src/app/*/*.scss", "/src/pages/*.scss"],

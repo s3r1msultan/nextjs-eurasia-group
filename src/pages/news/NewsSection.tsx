@@ -5,93 +5,85 @@ import NewsCard from "@/app/components/NewsCard/NewsCard";
 import { INews, category } from "@/app/constants/interfaces";
 import { useNewsStore } from "@/app/stores/NewsStore";
 import Link from "next/link";
-import { LoadingContext } from "@/app/components/Loader/Loader";
+import { NewsCardSkeleton } from "@/app/components/Skeleton/NewsCardSkeleton";
+import { useLoading } from "@/app/contexts/LoadingContext";
 
 const NewsSection = () => {
-	const {
-		newsList,
-		category,
-		pagination,
-		error,
-		setNewsList,
-		setFilters,
-		setPagination,
-		setError,
-	} = useNewsStore();
+  const { newsList, category, pagination, error, setNewsList, setFilters, setPagination, setError } = useNewsStore();
 
-	const { isLoading, setIsLoading } = useContext(LoadingContext);
+  const { isLoading, setIsLoading } = useLoading();
 
-	useEffect(() => {
-		const fetchNewsList = async () => {
-			try {
-				setIsLoading(true);
+  const skeletons = [1, 2, 3, 4, 5, 6];
 
-				const data: { data: INews[] } = await getWhatsNewRecords();
-				setNewsList(data.data);
-				setPagination({
-					currentPage: 1,
-					totalPages: Math.ceil(data.data.length / 6),
-				});
-			} catch (error: any) {
-				setError(error.message);
-			} finally {
-				setIsLoading(false);
-			}
-		};
+  useEffect(() => {
+    const fetchNewsList = async () => {
+      try {
+        setIsLoading(true);
 
-		fetchNewsList();
-	}, [setNewsList, setPagination, setError]);
+        const data: { data: INews[] } = await getWhatsNewRecords();
+        setNewsList(data.data);
+        setPagination({
+          currentPage: 1,
+          totalPages: Math.ceil(data.data.length / 6),
+        });
+      } catch (error: any) {
+        setError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-	const handleFilterChange = (category: category) => {
-		setFilters(category);
-	};
+    fetchNewsList();
+  }, [setNewsList, setPagination, setError]);
 
-	const handlePageChange = (newPage: number) => {
-		setPagination({ currentPage: newPage, totalPages: pagination.totalPages });
-	};
+  const handleFilterChange = (category: category) => {
+    setFilters(category);
+  };
 
-	const filteredNewsList = newsList.filter((news: INews) => {
-		return category ? news.record_category.name === category : true;
-	});
+  const handlePageChange = (newPage: number) => {
+    setPagination({ currentPage: newPage, totalPages: pagination.totalPages });
+  };
 
-	const paginatedNewsList = filteredNewsList.slice(
-		(pagination.currentPage - 1) * 6,
-		pagination.currentPage * 6,
-	);
+  const filteredNewsList = newsList.filter((news: INews) => {
+    return category ? news.record_category.name === category : true;
+  });
 
-	return (
-		<>
-			<div className={styles.filters}>
-				<button
-					onClick={() => handleFilterChange("Partner News")}
-					className={category === "Partner News" ? styles.active : ""}>
-					Новости партнеров
-				</button>
-				<button
-					onClick={() => handleFilterChange("News in agriculture")}
-					className={category === "News in agriculture" ? styles.active : ""}>
-					Новости в сельском хозяйстве
-				</button>
-			</div>
-			<div className={styles.news_grid}>
-				{paginatedNewsList.map((news: INews) => (
-					<Link href={`/news/${news.id}`} key={news.id}>
-						<NewsCard news={news} />
-					</Link>
-				))}
-			</div>
-			<div className={styles.pagination}>
-				{Array.from({ length: pagination.totalPages }, (_, i) => (
-					<button
-						key={i}
-						onClick={() => handlePageChange(i + 1)}
-						disabled={i + 1 === pagination.currentPage}>
-						{i + 1}
-					</button>
-				))}
-			</div>
-		</>
-	);
+  const paginatedNewsList = filteredNewsList.slice((pagination.currentPage - 1) * 6, pagination.currentPage * 6);
+
+  return (
+    <>
+      <div className={styles.filters}>
+        <button
+          onClick={() => handleFilterChange("Partner News")}
+          className={category === "Partner News" ? styles.active : ""}
+        >
+          Новости партнеров
+        </button>
+        <button
+          onClick={() => handleFilterChange("News in agriculture")}
+          className={category === "News in agriculture" ? styles.active : ""}
+        >
+          Новости в сельском хозяйстве
+        </button>
+      </div>
+      <div className={styles.news_grid}>
+        {!isLoading
+          ? paginatedNewsList.map((news: INews) => (
+              <Link href={`/news/${news.id}`} key={news.id}>
+                <NewsCard news={news} />
+              </Link>
+            ))
+          : skeletons.map((skeleton) => <NewsCardSkeleton key={skeleton} />)}
+      </div>
+      <div className={styles.pagination}>
+        {Array.from({ length: pagination.totalPages }, (_, i) => (
+          <button key={i} onClick={() => handlePageChange(i + 1)} disabled={i + 1 === pagination.currentPage}>
+            {i + 1}
+          </button>
+        ))}
+      </div>
+    </>
+  );
 };
 
 export default NewsSection;

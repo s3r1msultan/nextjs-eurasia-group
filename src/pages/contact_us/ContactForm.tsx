@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm, Controller, set } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { Bounce, toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // Import Toastify CSS
+import "react-toastify/dist/ReactToastify.css";
 import styles from "./Contact.module.scss";
 import { schema } from "@/app/constants/validation";
 
@@ -17,8 +16,10 @@ const ContactForm: React.FC = () => {
   });
 
   const [phoneValue, setPhoneValue] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async () => {
+    setIsLoading(true);
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       toast.success("Форма успешно отправлена!", {
@@ -42,6 +43,8 @@ const ContactForm: React.FC = () => {
         progress: undefined,
         transition: Bounce,
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -60,31 +63,32 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit(onSubmit)} className={styles.contactForm}>
-        <h2>СВЯЗАТЬСЯ С НАМИ</h2>
-
-        <div className={styles.formGroup}>
+    <div className={styles.contact_form_wrapper}>
+      <h2 className={`section_title ${styles.title}`}>Связаться с нами</h2>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.contact_form}>
+        <div className={styles.form_group}>
           <label htmlFor="name">Имя</label>
           <Controller
             name="name"
             control={control}
-            render={({ field }) => <input {...field} placeholder="Введите имя" value={field.value || ""} />}
+            render={({ field }) => <input {...field} type="text" placeholder="Введите имя" value={field.value || ""} />}
           />
           {errors.name && <span className={styles.error}>{errors.name.message}</span>}
         </div>
 
-        <div className={styles.formGroup}>
+        <div className={styles.form_group}>
           <label htmlFor="email">Email</label>
           <Controller
             name="email"
             control={control}
-            render={({ field }) => <input {...field} placeholder="Введите email" value={field.value || ""} />}
+            render={({ field }) => (
+              <input {...field} type="email" placeholder="Введите email" value={field.value || ""} />
+            )}
           />
           {errors.email && <span className={styles.error}>{errors.email.message}</span>}
         </div>
 
-        <div className={styles.formGroup}>
+        <div className={styles.form_group}>
           <label htmlFor="phone">Телефон</label>
           <Controller
             name="phone"
@@ -92,6 +96,7 @@ const ContactForm: React.FC = () => {
             render={({ field }) => (
               <input
                 {...field}
+                type="tel"
                 value={phoneValue}
                 onChange={(e) => {
                   field.onChange(e);
@@ -104,13 +109,18 @@ const ContactForm: React.FC = () => {
           {errors.phone && <span className={styles.error}>{errors.phone.message}</span>}
         </div>
 
-        <div className={styles.formGroup}>
+        <div className={styles.form_group}>
           <Controller
             name="agreement"
             control={control}
             render={({ field }) => (
               <div className={styles.checkbox}>
-                <input type="checkbox" {...field} checked={field.value || false} />
+                <input
+                  type="checkbox"
+                  {...field}
+                  checked={field.value || false}
+                  value={field.value ? "true" : "false"}
+                />
                 <span>
                   Я соглашаюсь с <a href="#">политикой конфиденциальности</a>
                 </span>
@@ -120,10 +130,12 @@ const ContactForm: React.FC = () => {
           {errors.agreement && <span className={styles.error}>{errors.agreement.message}</span>}
         </div>
 
-        <button type="submit">Отправить</button>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? "Отправка..." : "Отправить"}
+        </button>
       </form>
       <ToastContainer />
-    </>
+    </div>
   );
 };
 

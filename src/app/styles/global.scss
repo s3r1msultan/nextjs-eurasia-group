@@ -22,20 +22,7 @@ body {
 }
 
 main {
-  margin-bottom: 100px;
   flex: 1;
-
-  @include l {
-    margin-bottom: 75px;
-  }
-
-  @include m {
-    margin-bottom: 60px;
-  }
-
-  @include xs {
-    margin-bottom: 40px;
-  }
 }
 
 button {
@@ -63,6 +50,7 @@ section {
     font-size: 48px;
     font-weight: 700;
     text-transform: uppercase;
+    color: $primary-color;
 
     @include l {
       font-size: 40px;
@@ -101,6 +89,7 @@ header {
 .wrapper {
   padding: 0 36px;
   margin: 0 auto;
+  position: relative;
 
   .intro & {
     padding: 0 160px;

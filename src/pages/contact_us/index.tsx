@@ -7,13 +7,16 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "@/app/constants/validation";
 import { toast } from "react-toastify";
 import ContactForm from "./ContactForm";
+import Wrapper from "@/app/components/Wrapper/Wrapper";
 
 const ContactPage = () => {
   return (
     <>
       <div className={styles.contact_us}>
         <div className={styles.left_part}>
-          <ContactForm />
+          <Wrapper>
+            <ContactForm />
+          </Wrapper>
         </div>
 
         <div className={styles.right_part}>

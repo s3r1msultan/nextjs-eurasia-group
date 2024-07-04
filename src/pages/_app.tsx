@@ -1,8 +1,8 @@
 import "@/app/styles/global.scss";
 import type { AppProps } from "next/app";
 import RootLayout from "./Layout";
-import { LoadingContext, useLoading } from "@/app/components/Loader/Loader";
 import { ToastContainer } from "react-toastify";
+import { LoadingContext, useLoading } from "@/app/contexts/LoadingContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   const { isLoading, setIsLoading } = useLoading();
